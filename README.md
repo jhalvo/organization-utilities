@@ -1,2 +1,2 @@
 # organization-utilities
-Scheduling, planning, and workflow utilities
+Scheduling, planning, and workflow utilities.
