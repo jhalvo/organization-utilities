@@ -1,0 +1,4 @@
+#include classes with the following format:
+#<class name> <days held> <starting time (hhmm)> <ending time (hhmm)> <path>
+#For example,
+#CSC131 MonWedFri 0800 0840 Documents/ClassNotes/CSC131/
