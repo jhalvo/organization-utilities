@@ -1,4 +1,4 @@
-#Takenote
+# Takenote
 This is a utility that creates and opens text documents for taking notes that correspond to the class listed in schedule.txt. Classes are stored in the following format:
 ```
 <class name> <days of week> <starting time (hhmm)> <ending time (hhmm)> <directory notes are saved in>
