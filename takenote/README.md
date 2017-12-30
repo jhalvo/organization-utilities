@@ -1,5 +1,5 @@
 # Takenote
-This is a utility that creates and opens text documents for taking notes that correspond to the class listed in schedule.txt. Classes are stored in the following format:
+This is a utility that creates and opens text documents for taking notes that correspond to the class listed in a file called ~/.schedule.conf (Or whatever you want, just change the path variable at the top of the script) Classes are stored in the following format:
 ```
 <class name> <days of week> <starting time (hhmm)> <ending time (hhmm)> <directory notes are saved in>
 ```

@@ -1,0 +1,8 @@
+#include classes with the following format:
+#<class name> <days held> <starting time (hhmm)> <ending time (hhmm)> <path>
+#For example,
+#CSC131 MonWedFri 0800 0840 Documents/LectureNotes/CSC131/
+
+
+# Default location (set to all times ever)
+GeneralNotes SunMonTueWedThuFriSat 0000 2400 Documents/LectureNotes/General/

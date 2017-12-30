@@ -1,17 +1,41 @@
 #!/usr/bin/env bash
 
-SCHEDULEFILE=schedule.txt
+SCHEDULEFILE=~/.schedule.conf
 USERNAME=John\ Halvorson
 DATE=$(date +%Y-%m-%d)
-LINE=$(getclass.sh schedule.txt)
+DOW=`date +%a`
+TOD=`date +%k%d`
 
-if [[ $LINE =~ Error ]]
-then
-    echo $LINE
-    exit
+while IFS='' read -r LINE || [[ -n `$LINE` ]]
+do
+  if [[ $LINE =~ ^# ]]
+  then continue
+  fi
+  CLASS=( $LINE )
+  CLASSNAME=${CLASS[0]}
+  DAYSMET=${CLASS[1]}
+  START=${CLASS[2]}
+  END=${CLASS[3]}
+
+  if [[ $DAYSMET =~ $DOW ]] && [[ $TOD > $START ]] && [[ $TOD < $END ]]
+  then
+    CURRENTCLASS=$LINE
+    break
+  fi
+
+done < $SCHEDULEFILE
+
+FILE=$DATE.txt
+
+if [[ $CURRENTCLASS =~ [0-9a-zA-Z] ]]
+then #everything is good
+  echo taking note: $FILE
+else #everything is not good
+  echo everything is not good.
+  exit
 fi
 
-CLASS=( $LINE )
+CLASS=( $CURRENTCLASS )
 CLASSNAME=${CLASS[0]}
 DAYSMET=${CLASS[1]}
 START=${CLASS[2]}
@@ -19,8 +43,6 @@ END=${CLASS[3]}
 NOTESDIR=${CLASS[4]}
 
 cd; cd $NOTESDIR
-
-FILE=$DATE.txt
 
 if [ -f $FILE ]
 then
