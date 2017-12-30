@@ -13,5 +13,5 @@ Some values (like my name) are hard-coded in, I may move those to a config file 
 
 To run, put a sim-link in your bin folder that points at takenote.sh
 ```
-<USER>:/bin$ sudo ln -s /home/<USER>/Public/Utilities/takenote/takenote.sh takenote
+<USER>:~/.bin$ sudo ln -s ~/Public/Utilities/takenote/takenote.sh takenote
 ```

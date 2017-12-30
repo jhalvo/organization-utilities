@@ -2,3 +2,7 @@
 #<class name> <days held> <starting time (hhmm)> <ending time (hhmm)> <path>
 #For example,
 #CSC131 MonWedFri 0800 0840 Documents/ClassNotes/CSC131/
+
+#Include a default location by including an "always" class at the end
+#For example,
+#GeneralNotes SunMonTueWedThuFriSat 0000 2400 Documents/ClassNotes/General/
