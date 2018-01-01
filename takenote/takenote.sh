@@ -3,10 +3,10 @@
 SCHEDULEFILE=~/.schedule.conf
 USERNAME=John\ Halvorson
 DATE=$(date +%Y-%m-%d)
-DOW=`date +%a`
-TOD=`date +%k%d`
+DOW=$(date +%a)
+TOD=$(date +%k%d)
 
-while IFS='' read -r LINE || [[ -n `$LINE` ]]
+while IFS='' read -r LINE || [[ -n $LINE ]]
 do
   if [[ $LINE =~ ^# ]]
   then continue
@@ -29,9 +29,9 @@ FILE=$DATE.txt
 
 if [[ $CURRENTCLASS =~ [0-9a-zA-Z] ]]
 then #everything is good
-  echo taking note: $FILE
+  echo "taking note: $FILE"
 else #everything is not good
-  echo everything is not good.
+  echo "everything is not good."
   exit
 fi
 
@@ -42,23 +42,22 @@ START=${CLASS[2]}
 END=${CLASS[3]}
 NOTESDIR=${CLASS[4]}
 
-cd; cd $NOTESDIR
+cd "$HOME/$NOTESDIR"
 
-if [ -f $FILE ]
+if [ -f "$FILE" ]
 then
-    vi $FILE
+    vi "$FILE"
 else
-    cat <<EOT>> $FILE
+    cat <<EOT>> "$FILE"
 
   $USERNAME
   $CLASSNAME
   $DATE
 
   =======================
-
   
 EOT
 
-vi $FILE
+vi "$FILE"
 
 fi
